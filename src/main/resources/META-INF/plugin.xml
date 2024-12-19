@@ -1,0 +1,78 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>guohui.me.AIDT</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Android Image Diff Tool(AIDT)</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="guohui.me@gmail.com" url="https://github.com/maguohui">guohui.me</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>
+        <![CDATA[
+        <p>Android Image Diff Tool</p>
+        <p>This plug-in is used in AndroidStudio to help Android developers compare device screenshots with external images (such as those provided by UI designers) to determine the difference between the two images. The comparison can be done by transparency and pixel difference. This allows the UI development effect of the app to be highly restored and adjusted as quickly as possible.</p>
+        <h3>Key features:</h3>
+        <ul>
+            <li>Refresh: Android devices list</li>
+            <li>Screenshot: Make android device screenshot</li>
+            <li>SaveResult: Save the superimposed contrast images</li>
+            <li>SaveViewport: Save the window viewport image</li>
+            <li>Extra: The params control area is hidden or expanded</li>
+            <li>AlphaOver&PixDiff: Choose one of two contrast modes</li>
+            <li>Reference X or Y offset: Pixel-level movement</li>
+            <li>Reposition: Move the image to the top left corner</li>
+            <li>ZoomIn: You can also use the MouseWheel with ALT_DOWN</li>
+            <li>ZoomOut: You can also use the MouseWheel with ALT_DOWN</li>
+            <li>ZoomActual: Scale to the actual size of the image</li>
+            <li>MouseWheelMoved with SHIFT_DOWN: Move along the axis</li>
+            <li>MouseWheelMoved with ALT_DOWN: Follow the mouse to zoom</li>
+            <li>Measurement Box: Click and drag with the mouse</li>
+        </ul>
+        <h3>Getting started:</h3>
+        <p>"View" -> "Toolwindow" -> "AIDT" -> "Start(open new tab)"</p>
+        <p>"Tools" -> "AIDT(Android Image Diff Tool)" -> "Document"</p>
+        <p>Usage steps: First, click the screenshot button to take a screenshot of the device, and then drag an image from the folder to the plugin workspace. Next, we can diff happily</p>
+        ]]>
+    </description>
+    <change-notes>
+        <![CDATA[
+        <h3>Update log:</h3>
+        <p>Version 1.0: The first version.</p>
+        ]]>
+    </change-notes>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="AIDTToolWindowFactory"
+                    id="AIDT"
+                    anchor="bottom"
+                    canCloseContents="true"
+                    icon="/icons/toolsIcon-13.svg"
+                    />
+    </extensions>
+    <actions>
+        <!--
+        <action id="AIDT_Plugin" class="AIDTToolMenuPlugin" text="AIDT(Android Image Diff Tool)"
+                description="Android Image Diff Tool">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+        -->
+        <group id="AIDT_Plugin" text="AIDT(Android Image Diff Tool)" description="Android image diff tool"
+            popup="true" icon="/icons/toolsIcon-13.svg">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <action id="AIDT_Plugin_Document" class="AIDTToolMenuPlugin$AIDTToolMenuPluginDocument" text="Document"/>
+            <action  id="AIDT_Plugin_SourceCode" class="AIDTToolMenuPlugin$AIDTToolMenuPluginSourceCode" text="GitHub"/>
+        </group>
+    </actions>
+</idea-plugin>
