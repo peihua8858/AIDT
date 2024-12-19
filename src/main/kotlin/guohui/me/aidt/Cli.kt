@@ -41,10 +41,15 @@ object Cli {
         workingDir: String? = null,
         wait: Boolean = true,
     ): Process {
+        val processBuilder = ProcessBuilder(command.split(" "))
+        processBuilder.redirectErrorStream(true)
         val proc = if (workingDir != null) {
-            Runtime.getRuntime().exec(command, null, File(workingDir))
+            //Runtime.getRuntime().exec(command, null, File(workingDir))
+            processBuilder.directory(File(workingDir))
+            processBuilder.start()
         } else {
-            Runtime.getRuntime().exec(command)
+            //Runtime.getRuntime().exec(command)
+            processBuilder.start()
         }
         if (wait) {
             val result = proc.waitFor()

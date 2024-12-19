@@ -4,7 +4,6 @@ import guohui.me.aidt.lazyService
 import guohui.me.aidt.services.Device
 import guohui.me.aidt.services.DeviceService
 import guohui.me.aidt.services.FileFactoryService
-import com.intellij.execution.runToolbar.components.MouseListenerHelper
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
@@ -20,6 +19,8 @@ import java.awt.datatransfer.DataFlavor
 import java.awt.dnd.DnDConstants
 import java.awt.dnd.DropTarget
 import java.awt.dnd.DropTargetDropEvent
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
 import java.io.File
 import javax.imageio.ImageIO
 
@@ -46,12 +47,21 @@ class IDiffToolWindow(toolWindow: ToolWindow) {
         saveViewport.addActionListener {
             saveViewport()
         }
-        MouseListenerHelper.addListener(
+        refreshContainer.addMouseListener(object: MouseAdapter(){
+            override fun mouseClicked(e: MouseEvent?) {
+                println("refreshContainer mouseClicked")
+                refreshDevices()
+            }
+        })
+        /*
+        com.intellij.execution.runToolbar.components.MouseListenerHelperMouseListenerHelper.addListener(
             refreshContainer,
             doClick = { refreshDevices() },
             doShiftClick = {},
             doRightClick = {}
         )
+
+         */
 
         dropTarget = object : DropTarget() {
             override fun drop(evt: DropTargetDropEvent) {

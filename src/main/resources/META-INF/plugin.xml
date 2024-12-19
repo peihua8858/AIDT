@@ -16,7 +16,7 @@
     <description>
         <![CDATA[
         <p>Android Image Diff Tool</p>
-        <p>This plug-in is used in AndroidStudio to help Android developers compare device screenshots with external images (such as those provided by UI designers) to determine the difference between the two images. The comparison can be done by transparency and pixel difference. This allows the UI development effect of the app to be highly restored and adjusted as quickly as possible.</p>
+        <p>This`s used in AndroidStudio to help Android developers compare device screenshots with external images (such as those provided by UI designers) to determine the difference between the two images. The comparison can be done by transparency and pixel difference. This allows the UI development effect of the app to be highly restored and adjusted as quickly as possible.</p>
         <h3>Key features:</h3>
         <ul>
             <li>Refresh: Android devices list</li>
@@ -34,9 +34,6 @@
             <li>MouseWheelMoved with ALT_DOWN: Follow the mouse to zoom</li>
             <li>Measurement Box: Click and drag with the mouse</li>
         </ul>
-        <h3>Getting started:</h3>
-        <p>"View" -> "Toolwindow" -> "AIDT" -> "Start(open new tab)"</p>
-        <p>"Tools" -> "AIDT(Android Image Diff Tool)" -> "Document"</p>
         <p>Usage steps: First, click the screenshot button to take a screenshot of the device, and then drag an image from the folder to the plugin workspace. Next, we can diff happily</p>
         ]]>
     </description>
@@ -44,6 +41,7 @@
         <![CDATA[
         <h3>Update log:</h3>
         <p>Version 1.0: The first version.</p>
+        <p>Version 1.1: Optimize some implementation interfaces.</p>
         ]]>
     </change-notes>
 

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "guohui.me"
-version = "1.0-Release"
+version = "1.1-Release"
 
 repositories {
 
