@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "guohui.me"
-version = "1.1-Release"
+version = "1.2-Release"
 
 repositories {
 
@@ -41,7 +41,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("241")
-        untilBuild.set("252.*")
+        untilBuild.set("253.*")
     }
 
     signPlugin {
